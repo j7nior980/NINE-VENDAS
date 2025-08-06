@@ -1,101 +1,122 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>NINE VENDAS - Jogos Baratos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NINE VENDAS</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-      padding: 20px;
+      background: url('fb83a891-81ca-4ce3-8cdb-ae26a3101c1a.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
     }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #ff3c3c;
+    }
+
+    .container {
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.75);
+      max-width: 900px;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
     .jogo {
-      background-color: #1c1c1c;
-      border: 1px solid #444;
-      border-radius: 12px;
-      padding: 20px;
+      border: 1px solid #ff3c3c;
+      border-radius: 10px;
+      padding: 15px;
       margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
     }
+
     .jogo h2 {
-      margin-top: 0;
-      color: #ff0099;
+      color: #ff3c3c;
+      margin-bottom: 10px;
     }
-    .valor {
-      font-size: 18px;
-      margin: 10px 0;
+
+    .jogo p {
+      margin: 5px 0;
     }
-    .pix {
-      background-color: #ff0099;
-      padding: 10px;
-      border-radius: 8px;
-      word-break: break-all;
-    }
-    .aviso {
-      color: #ccc;
-      font-size: 14px;
+
+    .pix-button {
+      background-color: #ff3c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
       margin-top: 10px;
+    }
+
+    .link-download {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #00ffae;
+      display: none; /* Só será ativado manualmente */
     }
   </style>
 </head>
 <body>
-  <h1>NINE VENDAS - JOGOS LEVES PARA PC</h1>
-  <p>Após o pagamento via Pix, o link será liberado manualmente!</p>
+  <header>
+    <h1>NINE VENDAS</h1>
+  </header>
 
-  <!-- Jogo 1 -->
-  <div class="jogo">
-    <h2>𝚌𝚞𝚙𝚑𝚎𝚊𝚍 𝚕𝚒𝚝𝚎</h2>
-    <p class="valor">💰 R$2,50</p>
-    <div class="pix">
-      Chave Pix:<br>
-      00020101021126330014br.gov.bcb.pix0111136711136695204000053039865802BR5916FAYTON J A DINIZ6013SANTA RITA DO62070503***63044514
+  <div class="container">
+
+    <!-- JOGOS LISTADOS -->
+    <div class="jogo">
+      <h2>God of War 1 e 2</h2>
+      <p>Valor: R$ 5,00</p>
+      <button class="pix-button">Pagar com Pix</button>
+      <p class="link-download">Link após aprovação</p>
     </div>
-    <p class="aviso">✅ Link: <a style="color:#66f;" href="https://www.mediafire.com/file/n023i97wiob8jih">Aparecerá após aprovação</a></p>
-  </div>
 
-  <!-- Jogo 2 -->
-  <div class="jogo">
-    <h2>𝚐𝚘𝚍 𝚘𝚏 𝚠𝚊𝚛 𝟷 𝚎 𝟸</h2>
-    <p class="valor">💰 R$5,00</p>
-    <div class="pix">
-      Chave Pix:<br>
-      00020101021126330014br.gov.bcb.pix0111136711136695204000053039865802BR5916FAYTON J A DINIZ6013SANTA RITA DO62070503***63044514
+    <div class="jogo">
+      <h2>Cuphead Lite</h2>
+      <p>Valor: R$ 2,50</p>
+      <button class="pix-button">Pagar com Pix</button>
+      <p class="link-download">Link após aprovação</p>
     </div>
-    <p class="aviso">✅ Link: <a style="color:#66f;" href="https://www.mediafire.com/file/aqiny9ugcs13rdu">Aparecerá após aprovação</a></p>
-  </div>
 
-  <!-- Jogo 3 -->
-  <div class="jogo">
-    <h2>𝚎𝚞𝚛𝚘 𝚝𝚛𝚞𝚌𝚔 𝚜𝚒𝚖𝚞𝚕𝚊𝚝𝚘𝚛 𝟸</h2>
-    <p class="valor">💰 R$3,50</p>
-    <div class="pix">
-      Chave Pix:<br>
-      00020101021126330014br.gov.bcb.pix0111136711136695204000053039865802BR5916FAYTON J A DINIZ6013SANTA RITA DO62070503***63044514
+    <div class="jogo">
+      <h2>Euro Truck Simulator 2</h2>
+      <p>Valor: R$ 3,50</p>
+      <button class="pix-button">Pagar com Pix</button>
+      <p class="link-download">Link após aprovação</p>
     </div>
-    <p class="aviso">✅ Link: <a style="color:#66f;" href="https://www.mediafire.com/file/h1a7szc5qrzl53j">Aparecerá após aprovação</a></p>
-  </div>
 
-  <!-- Jogo 4 -->
-  <div class="jogo">
-    <h2>𝚍𝚎𝚊𝚍 𝚒𝚜𝚕𝚊𝚗𝚍</h2>
-    <p class="valor">💰 R$3,50</p>
-    <div class="pix">
-      Chave Pix:<br>
-      00020101021126330014br.gov.bcb.pix0111136711136695204000053039865802BR5916FAYTON J A DINIZ6013SANTA RITA DO62070503***63044514
+    <div class="jogo">
+      <h2>Dead Island</h2>
+      <p>Valor: R$ 3,50</p>
+      <button class="pix-button">Pagar com Pix</button>
+      <p class="link-download">Link após aprovação</p>
     </div>
-    <p class="aviso">✅ Link: <a style="color:#66f;" href="https://www.mediafire.com/file/k3vvcd0ppop9bu0">Aparecerá após aprovação</a></p>
-  </div>
 
-  <!-- Jogo 5 -->
-  <div class="jogo">
-    <h2>𝙰𝚖𝚎𝚛𝚒𝚌𝚊𝚗 𝚃𝚛𝚞𝚌𝚔 𝚂𝚒𝚖𝚞𝚕𝚊𝚝𝚘𝚛 𝙾𝚙𝚝𝚒</h2>
-    <p class="valor">💰 R$4,00</p>
-    <div class="pix">
-      Chave Pix:<br>
-      00020101021126330014br.gov.bcb.pix0111136711136695204000053039865802BR5916FAYTON J A DINIZ6013SANTA RITA DO62070503***63044514
+    <div class="jogo">
+      <h2>American Truck Simulator Opti</h2>
+      <p>Valor: R$ 4,00</p>
+      <button class="pix-button">Pagar com Pix</button>
+      <p class="link-download">Link após aprovação</p>
     </div>
-    <p class="aviso">✅ Link: <a style="color:#66f;" href="https://download2327.mediafire.com/h45h4c9y9mdgBdcvziBhU7xFv1X_QKaI6lGFpahpEeJZtvgyHwXDjLdwmnxs4_-XVLikOEtImxFaG5uhIBpahpEeJZtvgyHwXDjLdwmnxs4">Aparecerá após aprovação</a></p>
-  </div>
 
+  </div>
 </body>
 </html>
