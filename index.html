@@ -1,347 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NINE VENDAS - Loja</title>
-<style>
-  /* Reset básico */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  html, body {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://i.imgur.com/E6jHzl9.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.75); /* escurecer fundo para legibilidade */
-    z-index: 0;
-  }
-  header {
-    position: fixed;
-    top:0; left:0; right:0;
-    background: #1a0000cc;
-    backdrop-filter: saturate(180%) blur(10px);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 0;
-    box-shadow: 0 2px 8px #880000aa;
-  }
-  nav {
-    display: flex;
-    gap: 30px;
-  }
-  nav button {
-    background: transparent;
-    border: none;
-    color: #e01b24;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: background-color 0.25s ease;
-  }
-  nav button:hover,
-  nav button.active {
-    background-color: #e01b24;
-    color: #fff;
-  }
-  main {
-    position: relative;
-    z-index: 1;
-    padding: 100px 20px 50px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  h1 {
-    color: #e01b24;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px #880000;
-    text-align: center;
-  }
-  section.categoria {
-    display: none;
-    background: rgba(20,20,20,0.9);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 20px #e01b24;
-    margin-bottom: 40px;
-  }
-  section.categoria.active {
-    display: block;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #fff;
-  }
-  th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #660000;
-  }
-  th {
-    background-color: #330000;
-    font-weight: 600;
-  }
-  button.pix {
-    background-color: #e01b24;
-    border: none;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-  button.pix:hover {
-    background-color: #a11316;
-  }
-  a.download {
-    display: inline-block;
-    margin-top: 10px;
-    background: #00b300;
-    padding: 10px 18px;
-    border-radius: 6px;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-  }
-  a.download:hover {
-    background: #007700;
-  }
-  .link-download {
-    margin-top: 8px;
-  }
-  /* Discord fixo no canto inferior direito */
-  #discord-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #7289da;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    font-size: 30px;
-    box-shadow: 0 0 15px #7289daaa;
-    cursor: pointer;
-    z-index: 20;
-    transition: background-color 0.3s ease;
-  }
-  #discord-btn:hover {
-    background: #5b6eae;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NINE VENDAS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://media.discordapp.net/attachments/1393069009876029462/1398446808010723429/fb83a891-81ca-4ce3-8cdb-ae26a3101c1a.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      color: #ff0000;
+      font-size: 2.5em;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    nav a {
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: #ff0000;
+    }
+    .container {
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .categoria {
+      margin-bottom: 40px;
+    }
+    .categoria h2 {
+      color: #ff0000;
+      border-bottom: 2px solid #ff0000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .jogo {
+      background-color: #222;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .jogo h3 {
+      margin-bottom: 10px;
+    }
+    .jogo button {
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .discord {
+      margin-top: 20px;
+    }
+    .discord a {
+      color: #7289da;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>NINE VENDAS</h1>
+  </header>
 
-<header>
   <nav>
-    <button class="tab-btn active" data-cat="jogos">Jogos</button>
-    <button class="tab-btn" data-cat="otimizacao">Otimização</button>
-    <button class="tab-btn" data-cat="aplicativos">Aplicativos</button>
+    <a href="#jogos">Jogos</a>
+    <a href="#otimizacao">Otimização</a>
+    <a href="#apps">Aplicativos</a>
+    <a href="#contato">Contato</a>
   </nav>
-</header>
 
-<main>
-  <h1>NINE VENDAS - Loja</h1>
+  <div class="container">
+    <section id="jogos" class="categoria">
+      <h2>Jogos</h2>
+      <div class="jogo">
+        <h3>God of War 1 e 2 – R$3,00</h3>
+        <button>Pagar via Pix</button>
+        <!-- Link de download oculto até aprovação -->
+      </div>
+      <div class="jogo">
+        <h3>Dead Island – R$3,50</h3>
+        <button>Pagar via Pix</button>
+      </div>
+    </section>
 
-  <section id="jogos" class="categoria active">
-    <table>
-      <thead>
-        <tr>
-          <th>Jogo</th>
-          <th>Preço (R$)</th>
-          <th>Pagar via Pix</th>
-          <th>Download</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Cuphead Lite</td>
-          <td>2,50</td>
-          <td><button class="pix" data-valor="2.50">Pagar R$2,50</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>God of War 1 e 2</td>
-          <td>3,00</td>
-          <td><button class="pix" data-valor="3.00">Pagar R$3,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>Euro Truck Simulator 2</td>
-          <td>3,50</td>
-          <td><button class="pix" data-valor="3.50">Pagar R$3,50</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>Dead Island</td>
-          <td>3,50</td>
-          <td><button class="pix" data-valor="3.50">Pagar R$3,50</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>American Truck Simulator Opti</td>
-          <td>4,00</td>
-          <td><button class="pix" data-valor="4.00">Pagar R$4,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>GTA 2 (Rockstar)</td>
-          <td>4,00</td>
-          <td><button class="pix" data-valor="4.00">Pagar R$4,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>Urban Terror</td>
-          <td>4,00</td>
-          <td><button class="pix" data-valor="4.00">Pagar R$4,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>APB Reloaded</td>
-          <td>4,00</td>
-          <td><button class="pix" data-valor="4.00">Pagar R$4,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section id="otimizacao" class="categoria">
+      <h2>Otimização</h2>
+      <div class="jogo">
+        <h3>Boost de Desempenho Windows – R$2,00</h3>
+        <button>Pagar via Pix</button>
+      </div>
+    </section>
 
-  <section id="otimizacao" class="categoria">
-    <table>
-      <thead>
-        <tr>
-          <th>Serviço</th>
-          <th>Preço (R$)</th>
-          <th>Contato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Otimização PC Básica</td>
-          <td>50,00</td>
-          <td><a href="https://discord.gg/CZ8xUGE8pd" target="_blank" rel="noopener" style="color:#e01b24;">Entrar no Discord</a></td>
-        </tr>
-        <tr>
-          <td>Otimização PC Avançada</td>
-          <td>120,00</td>
-          <td><a href="https://discord.gg/CZ8xUGE8pd" target="_blank" rel="noopener" style="color:#e01b24;">Entrar no Discord</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+    <section id="apps" class="categoria">
+      <h2>Aplicativos</h2>
+      <div class="jogo">
+        <h3>Editor de Vídeos Leve – R$1,50</h3>
+        <button>Pagar via Pix</button>
+      </div>
+    </section>
 
-  <section id="aplicativos" class="categoria">
-    <table>
-      <thead>
-        <tr>
-          <th>Aplicativo</th>
-          <th>Preço (R$)</th>
-          <th>Pagar via Pix</th>
-          <th>Download</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>App Limpeza</td>
-          <td>10,00</td>
-          <td><button class="pix" data-valor="10.00">Pagar R$10,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-        <tr>
-          <td>App Otimizador</td>
-          <td>15,00</td>
-          <td><button class="pix" data-valor="15.00">Pagar R$15,00</button></td>
-          <td class="link-download" data-aprovado="false"></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-</main>
+    <section id="contato" class="categoria">
+      <h2>Contato</h2>
+      <div class="discord">
+        <p>Entre no nosso Discord para suporte:</p>
+        <a href="https://discord.gg/CZ8xUGE8pd" target="_blank">Acessar Discord</a>
+      </div>
+    </section>
+  </div>
 
-<!-- Botão fixo Discord -->
-<a id="discord-btn" href="https://discord.gg/CZ8xUGE8pd" target="_blank" title="Entrar no Discord">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 245 240" width="30" height="30" style="vertical-align: middle;">
-    <path d="M104.4 104.6c-5.7 0-10.3 5-10.3 11.1 0 6.1 4.6 11.1 10.3 11.1 5.7 0 10.3-5 10.3-11.1 0-6.1-4.6-11.1-10.3-11.1zm36.2 0c-5.7 0-10.3 5-10.3 11.1 0 6.1 4.6 11.1 10.3 11.1 5.7 0 10.3-5 10.3-11.1 0-6.1-4.6-11.1-10.3-11.1z"/>
-    <path d="M189.5 20h-134C43.3 20 30 33.3 30 50.5v134c0 17.2 13.3 30.5 30.5 30.5h105.1l-4.9-17 11.6 10.9 10.9 10.4 19.5 17V50.5c0-17.2-13.3-30.5-30.5-30.5zm-70.3 141.3c-20.8 0-37.8-19.1-37.8-42.6 0-23.5 16.8-42.6 37.8-42.6 20.9 0 37.9 19.1 37.8 42.6 0 23.5-17 42.6-37.8 42.6z"/>
-  </svg>
-</a>
+  <footer>
+    <p>&copy; 2025 NINE VENDAS. Todos os direitos reservados.</p>
+  </footer>
 
-<script>
-  // Troque aqui pela sua chave Pix real
-  const pixChave = 136.711.136-69
-  // Troque aqui pelos links reais de download, por jogo/app (exemplo abaixo)
-  const linksDownload = {
-    "Cuphead Lite": "https://www.mediafire.com/fake-link-cuphead.zip",
-    "God of War 1 e 2": "https://www.mediafire.com/fake-link-gow12.zip",
-    "Euro Truck Simulator 2": "https://www.mediafire.com/fake-link-ets2.zip",
-    "Dead Island": "https://www.mediafire.com/fake-link-deadisland.zip",
-    "American Truck Simulator Opti": "https://www.mediafire.com/fake-link-ats.zip",
-    "GTA 2 (Rockstar)": "https://www.mediafire.com/fake-link-gta2.zip",
-    "Urban Terror": "https://www.mediafire.com/fake-link-urbanterror.zip",
-    "APB Reloaded": "https://www.mediafire.com/fake-link-apb.zip",
-    "App Limpeza": "https://www.mediafire.com/fake-link-app-limpeza.zip",
-    "App Otimizador": "https://www.mediafire.com/fake-link-app-otimizador.zip",
-  };
-
-  // Troque aqui por seu nome ou nome da loja para o Pix
-  const nomeLoja = "NINE VENDAS LTDA";
-
-  // Pega todos os botões pix e configura click
-  document.querySelectorAll('button.pix').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const valor = btn.getAttribute('data-valor');
-      const tr = btn.closest('tr');
-      const nomeProduto = tr.querySelector('td').textContent.trim();
-      alert(`Simulando pagamento Pix de R$${valor} com chave:\n${PixChave}\n\nProduto: ${nomeProduto}`);
-
-      // Aqui você integraria a API Pix real para gerar QR code e confirmar o pagamento
-
-      // Após "aprovar" pagamento, libera o link
-      const tdDownload = tr.querySelector('.link-download');
-      if(tdDownload.getAttribute('data-aprovado') === "false"){
-        tdDownload.setAttribute('data-aprovado', "true");
-        const link = linksDownload[nomeProduto] || "#";
-        tdDownload.innerHTML = `<a href="${link}" class="download" target="_blank" rel="noopener noreferrer">Download Liberado</a>`;
-      }
-    });
-  });
-
-  // Controle abas categorias
-  const buttons = document.querySelectorAll('.tab-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const cat = btn.getAttribute('data-cat');
-      // ativa botão
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      // mostra seção
-      document.querySelectorAll('section.categoria').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      const secAtiva = document.getElementById(cat);
-      if(secAtiva) secAtiva.classList.add('active');
-    });
-  });
-</script>
-
-
--->
-
+  <!-- Suporte chat (ex: Tawk.to pode ser adicionado aqui futuramente) -->
 </body>
 </html>
