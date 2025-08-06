@@ -1,145 +1,284 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NINE VENDAS</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NINE SHOP</title>
   <style>
+    /* Reset básico */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    /* Fundo com a imagem */
     body {
-      font-family: Arial, sans-serif;
-      background: url('https://media.discordapp.net/attachments/1393069009876029462/1398446808010723429/fb83a891-81ca-4ce3-8cdb-ae26a3101c1a.png') no-repeat center center fixed;
+      min-height: 100vh;
+      background: url('https://i.imgur.com/pMI6twV.png') no-repeat center center fixed;
       background-size: cover;
       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
+
+    /* Camada escura para melhorar contraste */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.75);
+      z-index: -1;
+    }
+
     header {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
+      background-color: rgba(0,0,0,0.85);
+      padding: 25px 15px;
       text-align: center;
-    }
-    header h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
       color: #ff0000;
-      font-size: 2.5em;
+      letter-spacing: 4px;
+      user-select: none;
     }
+
     nav {
+      background-color: rgba(0,0,0,0.9);
+      padding: 12px 0;
       display: flex;
       justify-content: center;
-      background-color: rgba(0, 0, 0, 0.9);
+      gap: 35px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+      flex-wrap: wrap;
     }
+
     nav a {
-      padding: 15px 25px;
-      color: white;
+      color: #ff0000;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      background-color: #ff0000;
+      color: #ff6666;
+      text-shadow: 0 0 8px #ff0000;
     }
-    .container {
-      padding: 30px;
-      background-color: rgba(0, 0, 0, 0.7);
+
+    main {
+      flex-grow: 1;
+      max-width: 960px;
+      margin: 30px auto 50px;
+      padding: 0 15px;
+      width: 100%;
     }
-    .categoria {
-      margin-bottom: 40px;
+
+    section {
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      padding: 25px 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     }
-    .categoria h2 {
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
       color: #ff0000;
       border-bottom: 2px solid #ff0000;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
+      padding-bottom: 8px;
+      user-select: none;
     }
-    .jogo {
-      background-color: #222;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #330000;
     }
-    .jogo h3 {
-      margin-bottom: 10px;
+
+    .item:last-child {
+      border-bottom: none;
     }
-    .jogo button {
-      padding: 10px 20px;
+
+    .item-name {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #ff4444;
+      user-select: text;
+    }
+
+    .item-price {
+      font-weight: 700;
+      color: #ff0000;
+      min-width: 70px;
+      text-align: right;
+      user-select: text;
+    }
+
+    .btn-pix {
       background-color: #ff0000;
       color: white;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    footer {
+      padding: 7px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: not-allowed;
+      opacity: 0.7;
+      user-select: none;
+      margin-left: 15px;
+      min-width: 130px;
       text-align: center;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.8);
+      font-size: 0.95rem;
     }
-    .discord {
-      margin-top: 20px;
+
+    /* Seção contato */
+    #contato p, #contato a {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #ff6666;
+      user-select: text;
     }
-    .discord a {
-      color: #7289da;
-      text-decoration: none;
-      font-weight: bold;
+
+    #contato a:hover {
+      color: #ff0000;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: rgba(0,0,0,0.9);
+      color: #ff4444;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 15px 10px;
+      user-select: none;
+    }
+
+    /* Responsividade básica */
+    @media (max-width: 600px) {
+      nav {
+        gap: 15px;
+        font-size: 1rem;
+      }
+
+      .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .btn-pix {
+        margin-left: 0;
+        min-width: 100%;
+        padding: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NINE VENDAS</h1>
-  </header>
+  <header>NINE SHOP</header>
 
   <nav>
     <a href="#jogos">Jogos</a>
-    <a href="#otimizacao">Otimização</a>
-    <a href="#apps">Aplicativos</a>
+    <a href="#otimizacoes">Otimizações</a>
+    <a href="#aplicativos">Aplicativos</a>
     <a href="#contato">Contato</a>
   </nav>
 
-  <div class="container">
-    <section id="jogos" class="categoria">
+  <main>
+    <section id="jogos">
       <h2>Jogos</h2>
-      <div class="jogo">
-        <h3>God of War 1 e 2 – R$3,00</h3>
-        <button>Pagar via Pix</button>
-        <!-- Link de download oculto até aprovação -->
+      <div class="item">
+        <div class="item-name">God of War 1 e 2</div>
+        <div class="item-price">R$3,00</div>
+        
+        <div class="pix-section">
+          <button class="btn-pix" onclick="navigator.clipboard.writeText('136.711.136-69'); alert('Chave Pix copiada!');">Copiar Chave Pix</button>
+          <p style="margin-top:8px; color:#ff9999;">Após o pagamento, envie o comprovante para liberação do link,entre no discord ou whatsapp
+        </div>
+        
       </div>
-      <div class="jogo">
-        <h3>Dead Island – R$3,50</h3>
-        <button>Pagar via Pix</button>
+      <div class="item">
+        <div class="item-name">Euro Truck Simulator 2</div>
+        <div class="item-price">R$3,50</div>
+        
+        <div class="pix-section">
+          <button class="btn-pix" onclick="navigator.clipboard.writeText('136.711.136-69'); alert('Chave Pix copiada!');">Copiar Chave Pix</button>
+          <p style="margin-top:8px; color:#ff9999;">Após o pagamento, envie o comprovante para liberação do link,entre no discord ou whatsapp
+        </div>
+        
       </div>
+      <!-- Você pode adicionar mais jogos aqui -->
     </section>
 
-    <section id="otimizacao" class="categoria">
-      <h2>Otimização</h2>
-      <div class="jogo">
-        <h3>Boost de Desempenho Windows – R$2,00</h3>
-        <button>Pagar via Pix</button>
+    <section id="otimizacoes">
+      <h2>Otimizações</h2>
+      <div class="item">
+        <div class="item-name">Otimizaçao Premium</div>
+        <div class="item-price">R$2,50</div>
+        
+        <div class="pix-section">
+          <button class="btn-pix" onclick="navigator.clipboard.writeText('136.711.136-69'); alert('Chave Pix copiada!');">Copiar Chave Pix</button>
+          <p style="margin-top:8px; color:#ff9999;">Após o pagamento, envie o comprovante para liberação do link,entre no discord ou whatsapp
+        </div>
+         
+      <div class="item">
+        <div class="item-name">Otimizaçao BGX</div>
+        <div class="item-price">R$2,50</div>
+        
+        <div class="pix-section">
+          <button class="btn-pix" onclick="navigator.clipboard.writeText('136.711.136-69'); alert('Chave Pix copiada!');">Copiar Chave Pix</button>
+          <p style="margin-top:8px; color:#ff9999;">Após o pagamento, envie o comprovante para liberação do link,entre no discord ou whatsapp
+        </div>
+        
       </div>
-    </section>
 
-    <section id="apps" class="categoria">
+      <!-- Adicione mais otimizações aqui -->
+    </section> 
+      
+
+    <section id="aplicativos">
       <h2>Aplicativos</h2>
-      <div class="jogo">
-        <h3>Editor de Vídeos Leve – R$1,50</h3>
-        <button>Pagar via Pix</button>
+      <div class="item">
+        <div class="item-name">Editor de Vídeo Leve</div>
+        <div class="item-price">R$2,50</div>
+        
+        <div class="pix-section">
+          <button class="btn-pix" onclick="navigator.clipboard.writeText('136.711.136-69'); alert('Chave Pix copiada!');">Copiar Chave Pix</button>
+          <p style="margin-top:8px; color:#ff9999;">Após o pagamento, envie o comprovante para liberação do link,entre no discord ou whatsapp
+        
       </div>
+      <!-- Adicione mais aplicativos aqui -->
     </section>
 
-    <section id="contato" class="categoria">
+    <section id="contato">
       <h2>Contato</h2>
-      <div class="discord">
-        <p>Entre no nosso Discord para suporte:</p>
-        <a href="https://discord.gg/CZ8xUGE8pd" target="_blank">Acessar Discord</a>
-      </div>
+        <br>WhatsApp:  <a href="https://wa.me/5535997265660" target="_blank" style="color:#ff4444;">(35) 99726-5660</a></p>
+        </div>
+      <p>Discord: <a href="https://discord.gg/CZ8xUGE8pd" target="_blank" rel="noopener" style="color:#ff4444;">Entrar no servidor</a></p>
+      <p>Link para download será liberado após aprovação do pagamento.</p>
+      <p>Chat com IA será implementado futuramente.</p>
     </section>
-  </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 NINE VENDAS. Todos os direitos reservados.</p>
+    &copy; 2025 NINE SHOP - Todos os direitos reservados.
   </footer>
-
-  <!-- Suporte chat (ex: Tawk.to pode ser adicionado aqui futuramente) -->
 </body>
 </html>
+
+<style>
+  body {
+    margin: 0;
+    background-image: url('https://media.discordapp.net/attachments/1398482008316968990/1402686952293142588/NINE_OUTDOR.png?ex=6894d186&is=68938006&hm=acf0123ccdd43b4cdcf70d110699ffdc2dc6c56b0d0706f733198c73cfd682ba&=&format=webp&quality=lossless&width=813&height=542');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+  }
+</style>
+
